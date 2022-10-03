@@ -8,7 +8,7 @@ import sys
 
 if __name__ == '__main__':
     n = int(input().strip())
-if n // 2 == 1 :
+if n % 2 == 1 :
     print("Weird")
 else :
     if n in range(2, 5) :
