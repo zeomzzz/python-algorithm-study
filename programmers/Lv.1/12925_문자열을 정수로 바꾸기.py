@@ -1,4 +1,5 @@
 # int() 로 풀기
+
 def solution(s):
     
     answer = int(s)
@@ -7,6 +8,7 @@ def solution(s):
   
   
 # case 나누어서 풀기
+
 def solution(s):
     
     num = 0
@@ -34,7 +36,6 @@ def solution(s):
         answer = num
         
     else :
-        
         k = len(s)
         k_index = 0
         
