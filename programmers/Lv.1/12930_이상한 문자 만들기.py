@@ -16,6 +16,6 @@ def solution(s):
         
         answer += ' '
     
-    answer = answer[0:len(answer) - 1] # 마지막 스페이스 제외 
+    answer = answer[0:-1] # 마지막 스페이스 제외 
     
     return answer
