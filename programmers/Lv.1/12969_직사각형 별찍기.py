@@ -1,6 +1,5 @@
 a, b = map(int, input().strip().split(' '))
 
-a_star = "*" * a + "\n"
-answer = a_star * b
+answer = ("*" * a + "\n") * b
 
 print(answer)
