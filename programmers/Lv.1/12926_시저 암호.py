@@ -7,9 +7,9 @@ def solution(s, n):
         else :
             ascii_pushed = ord(i) + n
             
-            if ord(i) < 91 and ascii_pushed > 90 :
+            if i.isupper() and ascii_pushed > ord("Z") :
                 answer += chr(ascii_pushed - 26)
-            elif ascii_pushed > 122 :
+            elif i.islower() and ascii_pushed > ord("z") :
                 answer += chr(ascii_pushed - 26)
             else :
                 answer += chr(ascii_pushed)
