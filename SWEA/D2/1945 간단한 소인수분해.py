@@ -1,9 +1,9 @@
 t = int(input())
 
 for i in range(t) :
-    a, b, c, d, e = 0, 0, 0, 0, 0
-
     n = int(input())
+    
+    a, b, c, d, e = 0, 0, 0, 0, 0
     
     while True :
         if n % 2 == 0 :
