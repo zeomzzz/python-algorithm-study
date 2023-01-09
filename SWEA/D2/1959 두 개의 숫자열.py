@@ -15,7 +15,7 @@ for _ in range(T) :
     cnt = 0
     while cnt < (M - N + 1) :
         sum = 0
-        for i in range(M) :
+        for i in range(cnt, cnt + N) :
             sum += A[i] * B[i]
         sumLst.append(sum)
         A = [0] + A[:-1]
