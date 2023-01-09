@@ -5,16 +5,17 @@ for _ in range(T) :
     A = list(map(int, input().split()))
     B = list(map(int, input().split()))
 
-    if len(A) > len(B) :
+    if N > M :
+        N, M = M, N
         A, B = B, A
 
-    A = A + [0] * (len(B) - len(A))
+    A += [0] * (M - N)
 
     sumLst = []
     cnt = 0
-    while cnt < ((abs(N - M)) + 1) :
+    while cnt < (M - N + 1) :
         sum = 0
-        for i in range(len(A)) :
+        for i in range(M) :
             sum += A[i] * B[i]
         sumLst.append(sum)
         A = [0] + A[:-1]
