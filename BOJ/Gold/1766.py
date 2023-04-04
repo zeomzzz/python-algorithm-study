@@ -5,7 +5,7 @@ input = sys.stdin.readline
 
 n, m = map(int, input().rstrip().split())  # n : 문제의 수 , m : 정보 개수
 
-graph = [[0] for _ in range(n + 1)]
+graph = [[] for _ in range(n + 1)]
 indegree = [0] * (n + 1)
 hq = []
 ans = []
@@ -16,7 +16,7 @@ for _ in range(m) :
     indegree[b] += 1 # 선행조건 추가
 
 for i in range(1, n + 1) :
-    if indegree[i] == 0 : heapq.heappush(hq, i)  # 선행조건 없으면 큐에 넣기
+    if indegree[i] == 0 : heapq.heappush(hq, i)  # 선행조건 없으면 q에 넣기
 
 while hq :
 
