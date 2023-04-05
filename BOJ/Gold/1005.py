@@ -36,18 +36,11 @@ for tc in range(t) :
 
         if cur == w : break
 
-        for nxt in adj[cur] : # 선행조건 다 해서 수행할 수 있는 상태
+        for nxt in adj[cur] :
             indegree[nxt] -= 1
+            dp[nxt] = max(dp[cur] + times[nxt], dp[nxt])
 
-            if indegree[nxt] == 0 :
+            if indegree[nxt] == 0 : # 선행조건 다 해서 수행할 수 있는 상태
                 q.append(nxt)
-    stack.insert(0, 0)
-
-    for i in range(1, len(stack)) :
-        if dp[stack[i]] == 0 :
-
-            for j in range(i - 1, 0, -1) :
-                if stack[i] in adj[stack[j]] : # stack[i]가 stack[j] 다음이면
-                    dp[stack[i]] = max(dp[stack[i]], dp[stack[j]] + times[stack[i]])
 
     print(dp[w])
