@@ -7,16 +7,10 @@ stack = []
 NGE = [-1] * N
 
 for i in range(N - 1, -1, -1) :
-    while True :
-        if not stack :
-            stack.append(A.pop())
-            break
-        else :
-            if stack[-1] > A[-1] :
-                NGE[i] = stack[-1]
-                stack.append(A.pop())
-                break
-            else :
-                stack.pop()
+    while stack and stack[-1] <= A[-1] :
+        stack.pop()
+
+    if stack : NGE[i] = stack[-1]
+    stack.append(A.pop())
 
 print(*NGE)
