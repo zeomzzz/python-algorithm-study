@@ -17,11 +17,8 @@ v1, v2 = map(int, input().rstrip().split()) # 반드시 거쳐야 하는 정점 
 2) 1 -> v2 -> v1 -> N
 '''
 
-dist = [INF] * (N + 1)
-
 # 1. 출발점 heap에 넣고 거리는 0
-def dijstra(start) :
-    global dist
+def d(start) :
     dist = [INF] * (N + 1)
 
     heap = []
@@ -39,23 +36,14 @@ def dijstra(start) :
                 dist[nv] = dist[cv] + nw
                 heapq.heappush(heap, (dist[nv], nv))
 
-ans1 = 0
-ans2 = 0
+    return dist
 
-dijstra(1)
+d1 = d(1)
+dv1 = d(v1)
+dv2 = d(v2)
 
-ans1 += dist[v1]
-ans2 += dist[v2]
-
-dijstra(v1)
-
-ans1 += dist[v2]
-ans2 += dist[N]
-
-dijstra(v2)
-
-ans1 += dist[N]
-ans2 += dist[v1]
+ans1 = d1[v1] + dv1[v2] + dv2[N]
+ans2 = d1[v2] + dv2[v1] + dv1[N]
 
 if ans1 >= INF and ans2 >= INF :
     print(-1)
