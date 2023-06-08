@@ -14,9 +14,6 @@ def bfs(r, c) :
         visited[cr][cc] = True
 
         # 사방 탐색
-        dr = [0, 0, 1, -1]
-        dc = [1, -1, 0, 0]
-
         for i in range(4) :
             nr, nc = cr + dr[i], cc + dc[i]
 
@@ -41,6 +38,9 @@ A = [list(map(int, input().rstrip().split())) for _ in range(N)]
 # 1) 사방탐색해서 국경을 열 나라 찾기 (bfs) 찾으면 list에 [r, c, 인구] 넣기 & visited true
 # 2) 이렇게 모든 칸에 대해 탐색하면 인구이동
 
+dr = [0, 0, 1, -1]
+dc = [1, -1, 0, 0]
+
 cnt = 0
 
 while True :
@@ -50,8 +50,7 @@ while True :
 
     for r in range(N) :
         for c in range(N) :
-            if not visited[r][c] :
-                bfs(r, c)
+            if not visited[r][c] : bfs(r, c)
 
     # 연합 없으면 종료
     if len(popmove) == 0 : break
@@ -64,8 +63,7 @@ while True :
         # 따라서 각 칸의 인구수는
         popres = popsum // popcnt # 소수점 버림
 
-        for r, c, pop in move :
-            A[r][c] = popres # 인구수 바꿔줌
+        for r, c, pop in move : A[r][c] = popres # 인구수 바꿔줌
 
     cnt += 1 # 인구이동 +1일
 
