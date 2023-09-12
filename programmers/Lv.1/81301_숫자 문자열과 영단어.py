@@ -23,3 +23,16 @@ def solution(s):
         answer = answer.replace(value, key)
     
     return int(answer)
+
+
+# 230912 풀이 (list)
+def solution(s):
+    answer = ""
+    
+    num_list = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    
+    for i in range(10) : s = s.replace(num_list[i], str(i))
+    
+    answer = int(s)
+    
+    return answer
