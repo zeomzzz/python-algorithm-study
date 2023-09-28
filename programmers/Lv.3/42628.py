@@ -1,3 +1,33 @@
+# 풀이 2. heapq.nlargest, nsmallest 이용
+import heapq
+
+def solution(operations):
+    answer = []
+    
+    pq = []
+    heapq.heapify(pq)
+    
+    for operation in operations :
+        if operation[0] == "I" :
+            heapq.heappush(pq, int(operation[2:]))
+        else :
+            if len(pq) > 0 :
+                if operation[2] == "1" : 
+                    print(heapq.nlargest(1, pq)[0])
+                    pq.remove(heapq.nlargest(1, pq)[0])
+                else : 
+                    heapq.heappop(pq)
+    
+    if len(pq) > 0 :
+        answer.append(heapq.nlargest(1, pq)[0])
+        answer.append(heapq.nsmallest(1, pq)[0])
+    else :
+        answer = [0, 0]
+    
+    return answer
+
+
+# 풀이 1. list 이용
 def solution(operations):
     answer = []
     
@@ -27,3 +57,5 @@ def solution(operations):
         answer = [0, 0]
     
     return answer
+
+
