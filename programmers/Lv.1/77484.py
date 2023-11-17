@@ -23,7 +23,7 @@ def find_rank(num) :
         return 3
     elif num == 3 :
         return 4
-    elif num == 4 :
+    elif num == 2 :
         return 5
     else :
         return 6
